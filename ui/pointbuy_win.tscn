@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Entities/PB_char.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/custom_label.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/pointbuy_win.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Fonts/Silver.ttf"
@@ -17,6 +17,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+script = ExtResource( 3 )
+_characteristics_grid = NodePath("Control/Panel/characteristics_grid")
+_points_txt = NodePath("Control/Panel/pb_points")
 
 [node name="Control" type="Control" parent="."]
 anchor_left = 0.5
@@ -47,43 +50,7 @@ script = ExtResource( 2 )
 font_size = 500
 font_outline_size = 5
 
-[node name="HBoxContainer" type="GridContainer" parent="Control/Panel"]
+[node name="characteristics_grid" type="GridContainer" parent="Control/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 columns = 3
-
-[node name="PB_char" parent="Control/Panel/HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 89.0
-margin_top = 39.0
-margin_right = 189.0
-margin_bottom = 227.0
-
-[node name="PB_char2" parent="Control/Panel/HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 372.0
-margin_top = 39.0
-margin_right = 472.0
-margin_bottom = 227.0
-
-[node name="PB_char3" parent="Control/Panel/HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 655.0
-margin_top = 39.0
-margin_right = 755.0
-margin_bottom = 227.0
-
-[node name="PB_char4" parent="Control/Panel/HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 89.0
-margin_top = 310.0
-margin_right = 189.0
-margin_bottom = 498.0
-
-[node name="PB_char5" parent="Control/Panel/HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 372.0
-margin_top = 310.0
-margin_right = 472.0
-margin_bottom = 498.0
-
-[node name="PB_char6" parent="Control/Panel/HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 655.0
-margin_top = 310.0
-margin_right = 755.0
-margin_bottom = 498.0

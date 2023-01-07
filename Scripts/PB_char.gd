@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+signal value_changed
+
 export (NodePath) var _char_name
 export (NodePath) var _char_num
 export (NodePath) var _dec
@@ -13,6 +15,7 @@ onready var inc          = get_node(_inc)
 onready var inc_text     = inc.get_node("txt")
 
 var value = 8 setget set_value
+var Name = "" setget set_name
 
 func _ready():
 	set_value(value)
@@ -22,8 +25,13 @@ func set_value(new_value):
 	value = new_value
 	char_num.value = value
 	update_labels()
+	emit_signal("value_changed")
 	pass
 
+func set_name(new_value):
+	Name = new_value
+	char_name.Text = new_value
+	pass
 
 func _on_inc_pressed():
 	set_value(value+1)
@@ -62,4 +70,8 @@ func get_up_cost():
 
 func get_down_cost():
 	return Global.pointbuy_table[value] - Global.pointbuy_table[value-1]
+	pass
+
+func get_cost():
+	return Global.pointbuy_table[value]
 	pass

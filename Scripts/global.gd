@@ -11,6 +11,15 @@ var pointbuy_table = {
 	15 : 9,
 }
 
+var characeristics = [
+	{name = "Сила", value = 10},
+	{name = "Ловкость", value = 10},
+	{name = "Телосложение", value = 10},
+	{name = "Мудрость", value = 10},
+	{name = "Интеллект", value = 10},
+	{name = "Харизма", value = 10},
+]
+
 
 func _ready():
 	pass
