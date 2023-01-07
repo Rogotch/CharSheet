@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/custom_label.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/char_num.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/Silver.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Fonts/Silver.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 3 )
+
+[node name="char_num" type="VBoxContainer"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource( 2 )
+_num = NodePath("num")
+_mod = NodePath("mod")
+
+[node name="num" type="Label" parent="."]
+margin_left = 36.0
+margin_right = 63.0
+margin_bottom = 56.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 2 )
+text = "12"
+align = 1
+valign = 1
+script = ExtResource( 1 )
+font_size = 50
+font_outline_size = 2
+
+[node name="mod" type="Label" parent="."]
+margin_left = 42.0
+margin_top = 63.0
+margin_right = 58.0
+margin_bottom = 97.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 4 )
+text = "+1"
+align = 1
+valign = 1
+script = ExtResource( 1 )
+font_size = 30
+font_outline_size = 2
