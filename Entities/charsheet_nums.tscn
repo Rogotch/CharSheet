@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/custom_label.gd" type="Script" id=1]
+[ext_resource path="res://Entities/char_num.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/charsheet_nums.gd" type="Script" id=3]
+[ext_resource path="res://Entities/skill_line.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/Silver.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[node name="charsheet_nums" type="CenterContainer"]
+margin_right = 160.0
+margin_bottom = 118.0
+rect_min_size = Vector2( 160, 0 )
+script = ExtResource( 3 )
+_char_name = NodePath("HBoxContainer/VBoxContainer/name")
+_char_num = NodePath("HBoxContainer/VBoxContainer/char_num")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 335.0
+margin_bottom = 186.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 154.0
+margin_bottom = 118.0
+size_flags_vertical = 0
+
+[node name="name" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_right = 154.0
+margin_bottom = 34.0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 2 )
+text = "Телосложение"
+align = 1
+valign = 1
+uppercase = true
+script = ExtResource( 1 )
+font_size = 30
+font_outline_size = 2
+
+[node name="name_holder" type="Control" parent="HBoxContainer/VBoxContainer"]
+visible = false
+margin_top = 38.0
+margin_right = 154.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="char_num" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 27.0
+margin_top = 38.0
+margin_right = 127.0
+margin_bottom = 118.0
+rect_min_size = Vector2( 100, 80 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 158.0
+margin_right = 335.0
+margin_bottom = 186.0
+
+[node name="skill_line" parent="HBoxContainer/VBoxContainer2" instance=ExtResource( 5 )]
+
+[node name="skill_line2" parent="HBoxContainer/VBoxContainer2" instance=ExtResource( 5 )]
+margin_top = 38.0
+margin_bottom = 72.0
+
+[node name="skill_line3" parent="HBoxContainer/VBoxContainer2" instance=ExtResource( 5 )]
+margin_top = 76.0
+margin_bottom = 110.0
+
+[node name="skill_line4" parent="HBoxContainer/VBoxContainer2" instance=ExtResource( 5 )]
+margin_top = 114.0
+margin_bottom = 148.0
+
+[node name="skill_line5" parent="HBoxContainer/VBoxContainer2" instance=ExtResource( 5 )]
+margin_top = 152.0
+margin_bottom = 186.0

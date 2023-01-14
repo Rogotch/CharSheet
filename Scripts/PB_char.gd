@@ -1,6 +1,7 @@
 extends VBoxContainer
 
 signal value_changed
+signal new_value(new_value)
 
 export (NodePath) var _char_name
 export (NodePath) var _char_num
@@ -14,8 +15,9 @@ onready var dec_text     = dec.get_node("txt")
 onready var inc          = get_node(_inc)
 onready var inc_text     = inc.get_node("txt")
 
-var value = 8 setget set_value
-var Name = "" setget set_name
+var value = 8  setget set_value
+var id    = ""
+var Name  = "" setget set_name
 
 func _ready():
 	set_value(value)
@@ -23,9 +25,10 @@ func _ready():
 
 func set_value(new_value):
 	value = new_value
-	char_num.value = value
+	char_num.value = value + (Character.get_full_characteristic_up_by_id(id) if id != null && id.length() > 0 else 0)
 	update_labels()
 	emit_signal("value_changed")
+	emit_signal("new_value", new_value)
 	pass
 
 func set_name(new_value):
@@ -45,13 +48,15 @@ func _on_dec_pressed():
 func update_labels():
 	block_dec(!Global.pointbuy_table.keys().has(value-1))
 	if Global.pointbuy_table.keys().has(value-1):
-		dec_text.Text = "+" + str(get_down_cost())
+		dec_text.Text = "-1"
+#		dec_text.Text = "+" + str(get_down_cost())
 	else:
 		dec_text.Text = "MIN"
 	
 	block_inc(!Global.pointbuy_table.keys().has(value+1))
 	if Global.pointbuy_table.keys().has(value+1):
-		inc_text.Text = "-" + str(get_up_cost())
+		inc_text.Text = "+1"
+#		inc_text.Text = "-" + str(get_up_cost())
 	else:
 		inc_text.Text = "MAX"
 	pass

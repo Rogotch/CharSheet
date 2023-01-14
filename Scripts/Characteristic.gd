@@ -8,6 +8,8 @@ signal value_changed
 #export (Character.CHARACTERISTIC) var char_type
 export (int) var value = 10 setget set_value
 
+var id = ""
+var source = ""
 var modifier = 0 setget , get_modifier
 
 func set_value(new_value):
@@ -22,4 +24,10 @@ func get_modifier():
 	modifier = result_mod
 	return result_mod
 #	print(result_mod)
+	pass
+
+func set_characteristic(new_id, new_value, new_source = ""):
+	id = new_id
+	set_value(new_value)
+	source = new_source
 	pass

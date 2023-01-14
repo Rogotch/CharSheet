@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
-"class": "Character",
-"language": "GDScript",
-"path": "res://Scripts/Character.gd"
-}, {
 "base": "Resource",
 "class": "Characteristic",
 "language": "GDScript",
@@ -35,7 +30,6 @@ _global_script_classes=[ {
 "path": "res://Scripts/DiceRoller.gd"
 } ]
 _global_script_class_icons={
-"Character": "",
 "Characteristic": "",
 "CustomLabel": "",
 "CustomRichTextLabel": "",
@@ -50,6 +44,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Scripts/global.gd"
+Character="*res://Scripts/Character.gd"
 
 [display]
 
